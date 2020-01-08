@@ -1,1 +1,26 @@
-start
+--Передача данных с верху вниз
+.ts(component)
+@Input() post: Post
+.html
+<app-post
+  [post]="p"
+></app-post>
+
+--Передача снизу вверх
+.ts(component)
+@Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
+
+addPost(){
+  const post= "title"
+  this.onAdd.emit(post)
+}
+
+.html
+<app-post (onAdd)="updatePost($event)"></app-post>
+
+.ts(component)
+updatePost(post){
+  ...
+}
+
+
