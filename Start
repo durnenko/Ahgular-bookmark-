@@ -1,1 +1,63 @@
-/Start
+--Create component
+ng g c post --skipTests
+
+--Интерполяция
+<p>{{ title }}</p>
+
+--Binding (привязка динамики к шаблону)
+<img [src]="img">
+
+--Обратный binding
+<button (click)="addPost()"></button>
+
+--Way Binding
+<input [value="title" (input)="onInput($event)">
+
+module FormsModule
+<input [(ngModel)]="title">
+
+--ngStyle
+<div [ngStyle]="{
+  width: "200px",
+  height: "300px",
+  background: toggle ? "red" : "black"
+}"></div>
+
+
+
+--ngClass
+<div [ngClass]="{
+  nameClass: condition
+}"></div>
+
+<div [class.blue]="!toggle"></div>
+
+--Ngif
+<div *ngIf="toggle"></div>
+
+<div *ngIf="toggle; else blueP "></div>
+<ng-template #blueP>
+  <p> TExt...</p>
+</ng-template>
+
+--NgSwitch
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true">Text...</p>
+  <p *ngSwitchCase="false">Text...</p>
+  <p *ngSwitchDefault>Text...</p>
+</div>
+
+--NgFor
+<ul>
+  <li *ngFor="let item of arr; let i = index">
+    {{ item }}
+    {{i+1}}
+  </li>
+</ul>
+
+
+--Pipes (изменение отображения данных)
+<p>
+  {{ now | date:""long" | uppercase | lowercase }}
+</p>
+
