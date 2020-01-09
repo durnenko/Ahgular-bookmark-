@@ -23,4 +23,40 @@ updatePost(post){
   ...
 }
 
+--Доступ к HTML элементам
+.html
+<input #titleInput />
+
+.ts
+@ViewChild('titleInput',{static: false}) inputRef: ElementRef
+
+onFocus(){
+  this.inputRef.nativeElement.focus();
+}
+
+--Передачу внутрь компонета
+.html
+<app-post>
+  <small>Text...</small>
+</app-post>
+
+.html(component)
+<ng-content></ng-content>
+
+--Передачу внутрь компонета(получить доступ)
+.html
+<app-post>
+  <div #infoChild>
+    <small>Text...</small>
+  </div>
+</app-post>
+
+.ts(component)
+@ContentChild('infoChild',{static: false}) infoRef: ElementRef
+
+--lifecycle hooks
+
+
+
+
 
