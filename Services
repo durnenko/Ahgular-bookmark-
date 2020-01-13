@@ -9,7 +9,7 @@ export class AppCounter{
 }
 
 modules.ts
-import {AppCounterService} from "./services/app-counter.service";
+import {AppCounter} from "./services/app-counter.service";
 @NgModule({
   providers: [
     AppCounter
@@ -17,6 +17,29 @@ import {AppCounterService} from "./services/app-counter.service";
 })
 
 component.ts
+export class AppComponent{
+  constructor(private appCounter:AppCounterService)
+}
+
+
+--подключение локально
+services.ts
+import {Injectable} from "@angular/core";
+
+@Injectable();
+
+export class AppCounter{
+}
+
+component.ts
+import {AppCounter} from "./services/app-counter.service";
+
+@Component({
+providers: [
+    AppCounter
+  ]  
+})
+
 export class AppComponent{
   constructor(private appCounter:AppCounterService)
 }
