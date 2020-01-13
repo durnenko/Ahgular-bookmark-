@@ -1,0 +1,20 @@
+services.ts
+import {Injectable} from "@angular/core";
+
+@Injectable({provideIn: 'root'});
+
+export class AppCounter{
+}
+
+modules.ts
+import {AppCounterService} from "./services/app-counter.service";
+@NgModule({
+  providers: [
+    AppCounter
+  ]
+})
+
+component.ts
+export class AppComponent{
+  constructor(private appCounter:AppCounterService)
+}
