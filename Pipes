@@ -23,3 +23,7 @@ export class MultByPipe implements PipeTransform {
   name: 'mult',
   pure: false
 })
+
+-- pipe async
+
+<p>{{ text | async }}</p>
