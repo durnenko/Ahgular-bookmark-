@@ -16,3 +16,10 @@ export class MultByPipe implements PipeTransform {
 
 .html
 <p>{{ 10 | mult:8 }}</p>
+
+--Оптимизация пайпов (для того чтобы все работало, но это угрожает оптимизации)
+
+@Pipe ({
+  name: 'mult',
+  pure: false
+})
