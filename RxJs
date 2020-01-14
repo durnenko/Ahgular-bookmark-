@@ -11,3 +11,33 @@ export class AppComponent {
     })
   }
 }
+
+
+-Операторы для rxJS
+.ts
+import {interval, Subscription} from 'rxjs'
+import {map,filter} from 'rxjs/operators'
+
+export class AppComponent {
+  sub:Subscription
+  
+  constructor(){
+    const intervalStream$ = interval(1000);
+
+    this.sub = intervalStream$
+    .pipe(
+      filter((value) => value % 2 === 0),
+      map((value)=>
+        `Mapped value ${value}`
+      )
+    )
+    .subscribe((value)=>{
+      console.log(value);
+    })
+  }
+
+  stop(){
+    this.sub.unsubscribe();
+  }
+
+}
