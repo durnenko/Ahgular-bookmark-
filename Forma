@@ -1,1 +1,49 @@
-start
+--START
+
+.html
+ <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+   <button class="btn" type="button">Выбрать столицу</button>
+   
+    <button class="btn" type="submit">Отправить</button>
+   
+ </form>
+
+.ts
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+export class AppComponent implements OnInit {
+  form: FormGroup
+
+  ngOnInit(){
+    this.form = new FormGroup({});
+  }
+
+  submit(){
+    console.log(this.form);
+  }
+
+}
+
+.module.ts
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PostComponent,
+    StyleDirective,
+    IfnotDirective,
+    FilterPipe,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+
+
