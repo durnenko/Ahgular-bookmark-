@@ -2,6 +2,8 @@
 
 .html
  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+   <input type="text" placeholder="Email" formControlName="email">
+   <input type="password" placeholder="Пароль" formControlName="password">
    <button class="btn" type="button">Выбрать столицу</button>
    
     <button class="btn" type="submit">Отправить</button>
@@ -16,7 +18,10 @@ export class AppComponent implements OnInit {
   form: FormGroup
 
   ngOnInit(){
-    this.form = new FormGroup({});
+    this.form = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl(null)
+    });
   }
 
   submit(){
@@ -44,6 +49,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
+
 
 
 
