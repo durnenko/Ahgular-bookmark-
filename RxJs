@@ -1,1 +1,13 @@
-start
+.ts
+import {interval} from 'rxjs'
+import {} from 'rxjs/operators'
+
+export class AppComponent {
+  constructor(){
+    const intervalStreame$ = interval(10);
+    
+    intervalStreame$.subscribe((value)=>{
+      console.log(value);
+    })
+  }
+}
