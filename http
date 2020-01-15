@@ -1,1 +1,23 @@
+module.ts
+import {HttpClientModule} from '@angular/common/http';
 
+@NgModule({
+  imports: [
+    HttpClientModule
+  ]
+})
+
+
+.ts
+import {HttpClient} from '@angular/common/http';
+
+export class AppComponent {
+  constructor(private http: HttpClient){}
+  
+  ngOnInit(){
+    this.http.get('url')
+      .subscribe(response => {
+        console.log(response)
+      })
+  }
+}
